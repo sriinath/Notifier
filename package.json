@@ -1,0 +1,31 @@
+{
+  "name": "notifier",
+  "version": "1.0.0",
+  "description": "PubSub server to send messages / data to the subscribed client from server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sriinath/Notifier.git"
+  },
+  "keywords": [
+    "notifier",
+    "pubsub",
+    "graphql",
+    "server",
+    "-",
+    "client"
+  ],
+  "author": "srinath",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sriinath/Notifier/issues"
+  },
+  "homepage": "https://github.com/sriinath/Notifier#readme",
+  "dependencies": {
+    "apollo-server": "^2.12.0",
+    "graphql": "^15.0.0"
+  }
+}
