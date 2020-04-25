@@ -1,26 +1,22 @@
 const { ApolloServer } = require('apollo-server');
 const resolvers = require('./resolvers')
 const schema = require('./schema')
-const authMiddleware = require('./auth')
+const contextMiddleware = require('./auth')
 
 const server = new ApolloServer({
     typeDefs: schema,
     resolvers,
     subscriptions: {
         onConnect: (connectionParams) => {
-            authMiddleware(connectionParams.Authorization || null)
-            return {
-                is_authenticated: true
-            }
+            return contextMiddleware(connectionParams.Authorization || null)
         }
     },
     context: async ({req, connection}) => {
-        if (connection && connection.context && connection.context.is_authenticated) {
-            return
+        if (connection && connection.context && connection.context.username) {
+            return connection.context
         } else {
             const token = req.headers.authorization || '';
-            authMiddleware(token)
-            return
+            return contextMiddleware(token)
         }
     }
 });
