@@ -5,6 +5,7 @@ const schema = gql`
         info: String
         message: String
         status: String!
+        channel: String!
     }
 
     input User {
