@@ -9,7 +9,7 @@ const schema = gql`
     }
 
     input User {
-        name: String!
+        username: String!
         email: String
         role: String
     }
@@ -21,12 +21,12 @@ const schema = gql`
     type SignupResponse {
         message: String
         status: String!
-        api_key: String!
+        api_key: String
     }
     
     type Response {
-        message: String
         status: String!
+        message: String
     }
 
     type Mutation {
